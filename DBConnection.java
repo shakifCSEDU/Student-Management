@@ -9,7 +9,7 @@ public class DBConnection {
 
     public static Connection createConnection(){
         try{
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection(url, user, password);
 
         }catch(Exception e){

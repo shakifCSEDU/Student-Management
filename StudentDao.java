@@ -34,6 +34,22 @@ public class StudentDao implements StudentDaoInterface{
     }
     
     public void showAllStudent(){
+        try{
+            Connection con = DBConnection.createConnection();
+            String query = "select * from student_details";
+            Statement stm = con.createStatement();
+            ResultSet rs = stm.executeQuery(query);
+            while(rs.next()){
+                System.out.println("Roll No : "+rs.getInt(1));
+                System.out.println("Name : "+rs.getString(2));
+                System.out.println("College : "+rs.getString(3));
+                System.out.println("City : "+rs.getString(4));
+                System.out.println("Percentage "+rs.getDouble(5));
+                System.out.println("----------------------------");
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
     }
 

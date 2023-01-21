@@ -25,7 +25,7 @@ public class Main{
                                 "\n6.exit"
                                 );
         
-            System.out.println("Enter choice");
+            System.out.println("Enter choice : ");
             int ch = sc.nextInt();
 
                 if(ch == 1){
@@ -49,9 +49,10 @@ public class Main{
                     else System.out.println("something went wrong..");
                 }
 
-                else if(ch == 2)
-                    System.out.println("Show all students");
-                
+                else if(ch == 2){
+                    System.out.println("****** Show all students ****");
+                    dao.showAllStudent();
+                }
                 else if(ch  == 3)
                     System.out.println("Get student based on roll number");
                 
