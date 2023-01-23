@@ -53,9 +53,14 @@ public class Main{
                     System.out.println("****** Show all students ****");
                     dao.showAllStudent();
                 }
-                else if(ch  == 3)
+                else if(ch  == 3){
                     System.out.println("Get student based on roll number");
-                
+                    System.out.println("Enter roll : ");
+                    int roll = sc.nextInt();
+                    boolean f =  dao.showStudentById(roll);
+                    if(!f)System.out.println("This student is not available ..");
+                }
+                    
                 else if(ch == 4)
                     System.out.println("Delete Student");
                 
