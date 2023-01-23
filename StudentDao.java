@@ -26,7 +26,18 @@ public class StudentDao implements StudentDaoInterface{
     }
 
     public boolean delete(int roll){
-        return false;
+        boolean flag = false;
+
+        try{
+            Connection con = DBConnection.createConnection();
+            String query = "delete from student_details where rollnum = "+roll;
+            PreparedStatement pst = con.prepareStatement(query);
+            pst.executeUpdate();
+            flag = true;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return flag;
     }
     
     public boolean update(int roll,String update,int ch,Student s){

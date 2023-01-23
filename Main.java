@@ -57,13 +57,19 @@ public class Main{
                     System.out.println("Get student based on roll number");
                     System.out.println("Enter roll : ");
                     int roll = sc.nextInt();
-                    boolean f =  dao.showStudentById(roll);
-                    if(!f)System.out.println("This student is not available ..");
+                    boolean ans =  dao.showStudentById(roll);
+                    if(!ans)System.out.println("This student is not available ..");
                 }
                     
                 else if(ch == 4)
+                {
                     System.out.println("Delete Student");
-                
+                    System.out.println("Enter roll no to delete : ");
+                    int rollnum = sc.nextInt();
+                    boolean ans = dao.delete(rollnum);
+                    if(ans)System.out.println("Record deleted successfully !!!");
+                    else System.out.println("Something went wrong....");
+                }
                 else if(ch == 5)
                     System.out.println("Update the student");    
             
