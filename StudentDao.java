@@ -41,7 +41,30 @@ public class StudentDao implements StudentDaoInterface{
     }
     
     public boolean update(int roll,String update,int ch,Student s){
-        return false;
+        boolean flag = false;
+        try{
+            if(ch == 1){
+                Connection con = DBConnection.createConnection();
+                String query = "update student_details set sname=? where rollnum= ?";
+                PreparedStatement ps = con.prepareStatement(query);
+                ps.setString(1,update);
+                ps.setInt(2,roll);
+                ps.executeUpdate();
+                flag  = true;
+            }
+            else{
+                Connection con = DBConnection.createConnection();
+                String query = "update student_details set clgname=? where rollnum= ?";
+                PreparedStatement ps = con.prepareStatement(query);
+                ps.setString(1,update);
+                ps.setInt(2,roll);
+                ps.executeUpdate();
+                flag  = true;
+                }
+         }catch(Exception e){
+            e.printStackTrace();
+        }
+        return flag;
     }
     
     public void showAllStudent(){

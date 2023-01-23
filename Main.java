@@ -70,8 +70,43 @@ public class Main{
                     if(ans)System.out.println("Record deleted successfully !!!");
                     else System.out.println("Something went wrong....");
                 }
-                else if(ch == 5)
-                    System.out.println("Update the student");    
+                else if(ch == 5){
+                    System.out.println("Update the student");   
+                    System.out.println("\n1.Update name\n2.Update college");
+                    System.out.println("Enter your choice ");
+                    int choice = sc.nextInt();
+                    if(choice == 1){
+                        System.out.println("Enter roll num");
+                        int rnum = sc.nextInt();
+
+                        System.out.println("Enter new name ??");
+                        String sname = sc.next();
+                        Student std = new Student();
+                        std.setName(sname);
+                        
+                        boolean flag = dao.update(rnum, sname, choice, std);
+                        if(flag)
+                            System.out.println("Name updated successfully ");
+                        else
+                            System.out.println("Something went wrong..");
+
+                    }else{
+
+                        System.out.println("Enter roll num");
+                        int rnum = sc.nextInt();
+
+                        System.out.println("Enter new college ??");
+                        String clg = sc.next();
+                        Student std = new Student();
+                        std.setClgName(clg);
+                        
+                        boolean flag = dao.update(rnum, clg, choice, std);
+                        if(flag)
+                            System.out.println("Name updated successfully ");
+                        else
+                            System.out.println("Something went wrong..");
+                    }
+                }
             
                 else if(ch == 6){
                     System.out.println("Thank you for using student management app");
